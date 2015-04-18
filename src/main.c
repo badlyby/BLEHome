@@ -573,8 +573,8 @@ void mk_fifo()
 	unlink("/tmp/weather_home_out");
 	mkfifo("/tmp/weather_home_in", 0666);
 	mkfifo("/tmp/weather_home_out", 0666);
-	chmod("/tmp/weather_home_in", S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP|S_IROTH|S_IWOTH);
-	chmod("/tmp/weather_home_out", S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP|S_IROTH|S_IWOTH);
+	chmod("/tmp/weather_home_in", 0x1B6);//S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP|S_IROTH|S_IWOTH
+	chmod("/tmp/weather_home_out", 0x1B6);//S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP|S_IROTH|S_IWOTH
 	atexit(rmfifo);
 }
 

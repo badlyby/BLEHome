@@ -6,8 +6,8 @@ NAME = Wang Zhong Lei
 DATE = 2015/04/16
 
 export KBUILD_BUILDHOST := $(SUBARCH)
-ARCH		= x86
-CROSS_COMPILE	=
+ARCH		= ARM
+CROSS_COMPILE	= arm-openwrt-linux-
 
 # Make variables (CC, etc...)
 
@@ -32,8 +32,7 @@ OBJ_DIR = objs
 BIN_DIR = bin
 TARGET = weather_home
 CPPFLAGS += -I./inc
-CPPFLAGS += -I/usr/include/lua5.1 -L/usr/lib/x86_64-linux-gnu
-TARGET_FLAGS = -llua5.1
+TARGET_FLAGS = -llua -lm -ldl
 COMPILE_FLAGS =
 
 SRCS := $(wildcard $(SRC_DIR)/*.c)
