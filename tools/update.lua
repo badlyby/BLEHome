@@ -2,7 +2,7 @@ local weather = {}
 
 function node_add(addr)
   local len = #weather
-  weather[len+1] = {addr=addr,pwr=100,rssi=0,temp=0.0,humi=0.0,pressure=0.0}
+  weather[len+1] = {addr=addr, pwr=nil, rssi=nil, temp=nil, humi=nil, pressure=nil}
   return len+1
 end
 

@@ -6,8 +6,8 @@ NAME = Wang Zhong Lei
 DATE = 2015/04/16
 
 export KBUILD_BUILDHOST := $(SUBARCH)
-ARCH		= ARM
-CROSS_COMPILE	= arm-openwrt-linux-
+ARCH		= MIPS
+CROSS_COMPILE	= mipsel-openwrt-linux-
 
 # Make variables (CC, etc...)
 
@@ -67,16 +67,7 @@ clean :
 	@rm $(TARGET_FILE) $(OBJS)&&\
 	echo clean!
 
-install:
-	cp bin/weather_home /usr/bin/
-	mkdir /usr/share/weather_home
-	cp tools/update.lua /usr/share/weather_home/
-	cp tools/weather_home.sh /etc/init.d/
-	cp tools/weather_home.conf /etc/init/
+pack:	make_pack.sh
+	./make_pack.sh
 
-uninstall:
-	rm /usr/bin/weather_home
-	rm -rf /usr/share/weather_home
-	rm /etc/init.d/weather_home.sh
-	rm /etc/init/weather_home.conf
 
