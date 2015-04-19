@@ -2,16 +2,12 @@ local weather = {}
 
 function node_add(addr)
   local len = #weather
-  weather[len+1] = {addr=addr, pwr=nil, rssi=nil, temp=nil, humi=nil, pressure=nil}
+  weather[len+1] = {addr=addr, pwr="nil", rssi="nil", temp="nil", humi="nil", pressure="nil"}
   return len+1
 end
 
 function node_print(pipe)
   local file=io.open(pipe,"w")
-  if file == nil then
-    os.execute([[mkfifo ]]..pipe)
-    file=io.open(pipe,"w")
-  end
   if file then
     if weather then
       file:write([[return {]])
